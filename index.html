@@ -1374,7 +1374,8 @@
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </nav>
-                <a href="#" class="discord-btn"><i class="fab fa-discord"></i> Join Discord</a>
+                <!-- DISCORD LINK DIUBAH -->
+                <a href="https://discord.gg/mvrUqRaA" target="_blank" class="discord-btn"><i class="fab fa-discord"></i> Join Discord</a>
             </div>
         </div>
     </header>
@@ -1386,7 +1387,8 @@
             <p class="fade-in delay-1">Unlock powerful tools designed for handphone & Your Computer. Join our community of creators and access exclusive features.</p>
             <div class="hero-buttons fade-in delay-2">
                 <a href="#tools" class="btn-primary">Get Started</a>
-                <a href="#community" class="btn-secondary">Explore Tools</a>
+                <!-- DISCORD LINK DIUBAH -->
+                <a href="https://discord.gg/mvrUqRaA" target="_blank" class="btn-secondary">Join Discord</a>
             </div>
             <div class="hero-tagline fade-in delay-3">
                 Welcome to Montokbgtt
@@ -1448,7 +1450,8 @@
                     </div>
                 </div>
                 
-                <button class="btn-join-vip" id="joinVipBtn">
+                <!-- DISCORD LINK DIUBAH -->
+                <button class="btn-join-vip" id="joinVipBtn" onclick="window.open('https://discord.gg/mvrUqRaA', '_blank')">
                     <i class="fab fa-discord"></i> Join VIP - Only <span id="slotsCount">8</span> Slots Left!
                 </button>
             </div>
@@ -1528,7 +1531,8 @@
             <div class="community-cta fade-in glow-on-hover">
                 <h3>Join Our Community</h3>
                 <p>Get access to exclusive tools, daily updates, and connect with admins on discord, purchase through discord.</p>
-                <a href="#" class="btn-primary"><i class="fab fa-discord"></i> Join Discord Server</a>
+                <!-- DISCORD LINK DIUBAH -->
+                <a href="https://discord.gg/mvrUqRaA" target="_blank" class="btn-primary"><i class="fab fa-discord"></i> Join Discord Server</a>
             </div>
         </div>
     </section>
@@ -1549,7 +1553,8 @@
                 <div class="tool-content">
                     <p class="tool-description censored">This suite of tools provides a variety of functions for digital projects and online activities.buy via discord (Join Discord to see more details)</p>
                     <div class="tool-footer">
-                        <a href="#" class="discord-link"><i class="fab fa-discord"></i> Learn More on Discord</a>
+                        <!-- DISCORD LINK DIUBAH -->
+                        <a href="https://discord.gg/mvrUqRaA" target="_blank" class="discord-link"><i class="fab fa-discord"></i> Learn More on Discord</a>
                     </div>
                 </div>
             </div>
@@ -1564,7 +1569,8 @@
                 <div class="tool-content">
                     <p class="tool-description censored">Spam Email, buy via discord (join discord to see more details)</p>
                     <div class="tool-footer">
-                        <a href="#" class="discord-link"><i class="fab fa-discord"></i> Learn More on Discord</a>
+                        <!-- DISCORD LINK DIUBAH -->
+                        <a href="https://discord.gg/mvrUqRaA" target="_blank" class="discord-link"><i class="fab fa-discord"></i> Learn More on Discord</a>
                     </div>
                 </div>
             </div>
@@ -1635,7 +1641,8 @@
             <div class="community-footer fade-in">
                 <h3>Join Our Community</h3>
                 <p>Get access to exclusive tools, daily updates, and connect with admins on discord.</p>
-                <a href="#" class="btn-primary"><i class="fab fa-discord"></i> Join Discord Server</a>
+                <!-- DISCORD LINK DIUBAH -->
+                <a href="https://discord.gg/mvrUqRaA" target="_blank" class="btn-primary"><i class="fab fa-discord"></i> Join Discord Server</a>
             </div>
             
             <div class="footer-content">
@@ -1651,7 +1658,8 @@
                 <div class="footer-column fade-in delay-1">
                     <h3>COMMUNITY</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Discord</a></li>
+                        <!-- DISCORD LINK DIUBAH -->
+                        <li><a href="https://discord.gg/mvrUqRaA" target="_blank">Discord</a></li>
                         <li><a href="#">VIP Membership</a></li>
                         <li><a href="#">Guidelines</a></li>
                     </ul>
@@ -1667,7 +1675,8 @@
             </div>
             
             <div class="social-icons fade-in">
-                <a href="#"><i class="fab fa-discord"></i></a>
+                <!-- DISCORD LINK DIUBAH -->
+                <a href="https://discord.gg/mvrUqRaA" target="_blank"><i class="fab fa-discord"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
             
@@ -1685,7 +1694,6 @@
             const availableSlots = document.getElementById('availableSlots');
             const progressFill = document.getElementById('progressFill');
             const slotsCount = document.getElementById('slotsCount');
-            const joinVipBtn = document.getElementById('joinVipBtn');
             
             // Initial values
             let currentPercentage = 75;
@@ -1715,13 +1723,18 @@
                     }
                     
                     // Update button text
-                    joinVipBtn.innerHTML = `<i class="fab fa-discord"></i> Join VIP - Only ${currentSlots} Slots Left!`;
+                    const joinVipBtn = document.getElementById('joinVipBtn');
+                    if (joinVipBtn) {
+                        joinVipBtn.innerHTML = `<i class="fab fa-discord"></i> Join VIP - Only ${currentSlots} Slots Left!`;
+                    }
                     
                     // If slots reach 0
                     if (currentSlots === 0) {
-                        joinVipBtn.innerHTML = `<i class="fas fa-times-circle"></i> VIP Membership FULL`;
-                        joinVipBtn.style.background = 'linear-gradient(135deg, #ff4757, #ff3838)';
-                        joinVipBtn.disabled = true;
+                        if (joinVipBtn) {
+                            joinVipBtn.innerHTML = `<i class="fas fa-times-circle"></i> VIP Membership FULL`;
+                            joinVipBtn.style.background = 'linear-gradient(135deg, #ff4757, #ff3838)';
+                            joinVipBtn.disabled = true;
+                        }
                         showNotification('VIP Membership is now FULL! Join waiting list.', 'success');
                     }
                 }
@@ -1729,36 +1742,6 @@
             
             // Update progress every 30 seconds
             setInterval(updateProgress, 30000);
-            
-            // Join VIP button click handler
-            joinVipBtn.addEventListener('click', function() {
-                if (currentSlots > 0) {
-                    showNotification('Redirecting to Discord for VIP application...', 'success');
-                    // Simulate VIP join process
-                    setTimeout(() => {
-                        // Update stats immediately when user clicks
-                        currentSlots -= 1;
-                        currentMembers += 1;
-                        currentPercentage = Math.round((currentMembers / 32) * 100);
-                        
-                        vipPercentage.textContent = currentPercentage + '%';
-                        activeMembers.textContent = currentMembers;
-                        availableSlots.textContent = currentSlots;
-                        slotsCount.textContent = currentSlots;
-                        progressFill.style.width = currentPercentage + '%';
-                        
-                        joinVipBtn.innerHTML = `<i class="fab fa-discord"></i> Join VIP - Only ${currentSlots} Slots Left!`;
-                        
-                        showNotification('VIP Application Submitted! Check Discord for instructions.', 'success');
-                        
-                        if (currentSlots === 0) {
-                            joinVipBtn.innerHTML = `<i class="fas fa-times-circle"></i> VIP Membership FULL`;
-                            joinVipBtn.style.background = 'linear-gradient(135deg, #ff4757, #ff3838)';
-                            joinVipBtn.disabled = true;
-                        }
-                    }, 1500);
-                }
-            });
             
             // Initialize progress bar width
             progressFill.style.width = currentPercentage + '%';
@@ -1814,7 +1797,7 @@
 
         // Show welcome notification
         setTimeout(() => {
-            showNotification('Welcome to Montokbgtt! Join VIP for exclusive tools access.');
+            showNotification('Welcome to Montokbgtt! Join Discord for exclusive tools access: https://discord.gg/mvrUqRaA');
         }, 1500);
 
         // Back to Top Button
@@ -1962,14 +1945,13 @@
             });
         });
         
-        // Discord button interactions
+        // Discord button interactions - UPDATED WITH REAL LINK
         document.querySelectorAll('.discord-btn, .btn-primary').forEach(button => {
             button.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') {
-                    e.preventDefault();
-                    showNotification('Redirecting to Discord server... Join our community!', 'success');
-                    // In a real implementation, this would redirect to Discord invite
-                    // window.location.href = 'https://discord.gg/mvrUqRaA';
+                if (this.getAttribute('href') === 'https://discord.gg/mvrUqRaA') {
+                    // Allow default behavior (opening link in new tab)
+                    showNotification('Opening Discord server...', 'success');
+                    // Link akan terbuka di tab baru (target="_blank" sudah ada)
                 }
             });
         });
@@ -2050,6 +2032,12 @@
                 const text = this.querySelector('span').textContent;
                 // You can add tooltip functionality here if needed
             });
+        });
+        
+        // Direct Discord redirect for VIP button
+        document.getElementById('joinVipBtn')?.addEventListener('click', function(e) {
+            // Already has onclick handler that opens Discord
+            showNotification('Opening Discord for VIP application...', 'success');
         });
     </script>
 </body>
